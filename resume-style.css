@@ -1,0 +1,11 @@
+body {
+    color: black;
+}
+
+p.nameBlock {
+    text-align: center;
+}
+
+h4.strongHead {
+    font-weight: strong;
+}
