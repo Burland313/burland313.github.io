@@ -16,11 +16,20 @@ a:hover {
 html,
 body {
     height: 100%;
+    margin:0;
+    padding:0;
     background-color: rgb(135, 135, 135);
     background-image: url("https://images.pexels.com/photos/956999/milky-way-starry-sky-night-sky-star-956999.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+    background-attachment: fixed;
+}
+
+.container {
+    margin:0;
+    padding:0;
+    align-self: center;
 }
 
 body {
@@ -28,11 +37,15 @@ body {
     display: flex;
     color: #fff;
     text-shadow: 0 .05rem .1rem rgba(0, 0, 0, .5);
-    box-shadow: inset 0 0 5rem rgba(0, 0, 0, .5);
+
 }
 
 .cover-container {
     max-width: 42em;
+}
+
+.cover-message {
+    color: #fff;
 }
 
 .nav-masthead .nav-link {
@@ -55,6 +68,7 @@ body {
 .nav-masthead .active {
     color: #fff;
     border-bottom-color: #fff;
+    align-self: center;
 }
 
 .cover {
@@ -64,3 +78,22 @@ body {
     padding: .75rem 1.25rem;
     font-weight: 700;
 } 
+
+.jumbotron {
+    background: none;
+}
+
+.col{
+    text-align: left;
+    background-color: rgba(255, 255, 255, 0.125);
+}
+
+.col-8 {
+    text-align: left;
+    background-color: rgba(255, 255, 255, 0.125);
+}
+
+.col-4 {
+    text-align: left;
+    background-color: rgba(255, 255, 255, 0.125);
+}

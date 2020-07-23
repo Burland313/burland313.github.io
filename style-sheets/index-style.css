@@ -23,11 +23,8 @@ body {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+    background-attachment: fixed;
 }
-
-
-    
-
 
 body {
     display: -ms-flexbow;
@@ -39,6 +36,13 @@ body {
 
 .cover-container {
     max-width: 42em;
+    text-shadow: 2px 2px 2px #000;
+}
+
+.cover-message {
+    text-shadow: 2px 2px 2px #000;
+    font-size: 1.5rem;
+    margin: 100px;
 }
 
 .nav-masthead .nav-link {
