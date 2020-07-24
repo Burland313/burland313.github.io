@@ -4,11 +4,7 @@ a:hover {
     color: #fff;
 }
 
-
-
-.btn-secondary,
-.btn-secondary:hover,
-.btn-secondary:focus {
+.btn-secondary {
   color: #333;
   text-shadow: none;
   background-color: #fff;
@@ -18,7 +14,8 @@ a:hover {
 html,
 body {
     height: 100%;
-    background-color: #333;
+    margin: 0;
+    padding: 0;
     background-image: url("https://images.pexels.com/photos/956999/milky-way-starry-sky-night-sky-star-956999.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
     background-position: center;
     background-repeat: no-repeat;
@@ -31,18 +28,18 @@ body {
     display: flex;
     color: #fff;
     text-shadow: 0 .05rem .1rem rgba(0, 0, 0, .5);
-    box-shadow: inset 0 0 5rem rgba(0, 0, 0, .5);
 }
 
 .cover-container {
-    max-width: 42em;
+    max-width: 80em;
     text-shadow: 2px 2px 2px #000;
 }
 
 .cover-message {
     text-shadow: 2px 2px 2px #000;
     font-size: 1.5rem;
-    margin: 100px;
+    align-self: center;
+    background-color: rgba(255, 255, 255, 0.125);
 }
 
 .nav-masthead .nav-link {
