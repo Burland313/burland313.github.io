@@ -77,17 +77,16 @@ body {
     background: none;
 }
 
-.col{
+.col, .col-4, .col-8{
     text-align: left;
     background-color: rgba(255, 255, 255, 0.125);
 }
 
-.col-8 {
-    text-align: left;
-    background-color: rgba(255, 255, 255, 0.125);
-}
-
-.col-4 {
-    text-align: left;
-    background-color: rgba(255, 255, 255, 0.125);
+@media screen and (max-width: 600px) {
+    .col h3, .col-4 h3, .col-8 h3 {
+        font-size: 20px;
+    }
+    .col h4, .col h5, .col-4 h4, .col-4 h5, .col-8 h4, .col-8 h5 {
+        font-size: 18px;
+    }
 }
