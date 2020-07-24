@@ -1,6 +1,4 @@
-a,
-a:focus,
-a:hover {
+a, a:focus, a:hover {
     color: #fff;
 }
 
@@ -11,8 +9,7 @@ a:hover {
   border: .05rem solid #fff;
 }
 
-html,
-body {
+html, body {
     height: 100%;
     margin: 0;
     padding: 0;
@@ -50,8 +47,7 @@ body {
     border-bottom: .25rem solid transparent;
 }
 
-.nav-masthead .nav-link:hover,
-.nav-masthead .nav-link:focus {
+.nav-masthead .nav-link:hover, .nav-masthead .nav-link:focus {
     border-bottom-color: rgba(255, 255, 255, .25);
 }
 
