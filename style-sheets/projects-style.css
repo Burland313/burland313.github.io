@@ -24,10 +24,6 @@ html, body {
     font-weight: bold;
 }
 
-.row {
-    background-color:  rgba(255, 255, 255, 0.125);
-}
-
 body {
     display: -ms-flexbox;
     display: flex;
