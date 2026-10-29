@@ -1,7 +1,9 @@
 # Macrowave recipe links
 
-The site at https://burland313.github.io, published from the `burland313.github.io` repo.
-This folder is its source; copy it there to publish.
+The site at https://burland313.github.io. This folder is its source; the public
+`Burland313/burland313.github.io` repo is a copy of it, published from the repo root with:
+
+    git subtree push --prefix Site https://github.com/Burland313/burland313.github.io.git main
 
 - `r/index.html` shows a shared recipe. The recipe is in the link's fragment (compressed,
   URL-safe base64 JSON), so the server never receives it.
