@@ -1,0 +1,12 @@
+{
+  "applinks": {
+    "details": [
+      {
+        "appIDs": ["UW43J8MG77.com.nateburland.macrowave"],
+        "components": [
+          { "/": "/r/*", "comment": "Shared recipes" }
+        ]
+      }
+    ]
+  }
+}
