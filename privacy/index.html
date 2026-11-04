@@ -37,10 +37,10 @@
   <h2>Looking up foods</h2>
   <p>When you search for a food or scan a barcode, the search words or barcode number are sent to <a href="https://fdc.nal.usda.gov">USDA FoodData Central</a> and <a href="https://world.openfoodfacts.org">Open Food Facts</a> to find the food. Nothing else about you is sent with them.</p>
 
-  <h2>AI meal estimates</h2>
-  <p>Macrowave Pro can estimate a meal from a description or a photo. Only when you ask for an estimate, Macrowave sends:</p>
+  <h2>AI meal estimates and recipe import</h2>
+  <p>Macrowave Pro can estimate a meal from a description or a photo, and read a recipe from screenshots or pasted text. Only when you ask for one of these, Macrowave sends:</p>
   <ul>
-    <li>the description and photo you chose, to Macrowave's server and on to Anthropic, whose Claude AI model makes the estimate;</li>
+    <li>the words and photos you chose, to Macrowave's server and on to Anthropic, whose Claude AI model makes the estimate;</li>
     <li>a random ID created when you installed the app, and the App Store's record of your subscription, so the server can confirm your subscription and keep to the daily limit.</li>
   </ul>
   <p>Macrowave's server doesn't store your descriptions or photos. Its logs record only how many items an estimate had, how long it took and what it cost. To enforce daily limits, it keeps a count of estimates per subscription and per network address, in memory, for one day. Anthropic doesn't use your descriptions or photos to train its models; it handles them under its <a href="https://www.anthropic.com/legal/privacy">privacy policy</a>. The server runs on <a href="https://railway.com">Railway</a>, which may keep standard request logs.</p>
