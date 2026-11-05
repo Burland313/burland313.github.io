@@ -1,7 +1,8 @@
 # Macrowave recipe links
 
-The site at https://burland313.github.io. This folder is its source; the public
-`Burland313/burland313.github.io` repo is a copy of it, published from the repo root with:
+The site at https://midnightsignalsoftware.com (`CNAME`; DNS at Cloudflare, DNS only). This folder
+is its source; the public `Burland313/burland313.github.io` repo is a copy of it, published from the
+repo root with:
 
     git subtree push --prefix Site https://github.com/Burland313/burland313.github.io.git main
 
