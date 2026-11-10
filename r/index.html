@@ -6,12 +6,11 @@
 <meta name="robots" content="noindex">
 <title>A recipe from Macrowave</title>
 <meta property="og:title" content="A recipe from Macrowave">
-<meta property="og:description" content="Tap to add it to Macrowave, or read it here.">
+<meta property="og:description" content="Calories and macros per serving, from Macrowave: food, lifting and water tracking for iPhone.">
 <link rel="icon" href="/favicon.png">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Damion&display=swap" rel="stylesheet">
 <style>
+  @font-face { font-family: Damion; src: url(/fonts/damion.woff2) format("woff2"); font-display: swap; }
   :root {
     --bg: #FBF8F3; --surface: #FFFFFF; --raised: #F1ECF4;
     --text: #1A1027; --muted: #5F5272; --faint: #716585;
@@ -46,6 +45,23 @@
   .open { display: block; margin-top: 24px; padding: 16px; border-radius: 14px; text-align: center;
     background: var(--accent); color: #fff; font-weight: 600; text-decoration: none; }
   .note { color: var(--muted); font-size: 15px; text-align: center; margin: 12px 0 0; }
+  .note a { color: var(--accent); font-weight: 600; text-decoration: none; }
+
+  /* The ad: anyone who sees this page doesn't have Macrowave, since the app opens these links itself. */
+  .ad { margin-top: 40px; padding-top: 32px; border-top: 1px solid var(--raised); }
+  .ad .mark { font-size: 44px; }
+  .ad h2 { font-size: 26px; line-height: 1.2; margin: 8px 0 8px; }
+  .ad .pitch { color: var(--muted); margin: 0; }
+  .shot { display: block; width: 100%; max-width: 300px; margin: 24px auto 0; border-radius: 28px;
+    border: 3px solid var(--text); box-shadow: 6px 6px 0 var(--text); }
+  .features { margin-top: 24px; }
+  .features li { display: block; padding: 12px 0; }
+  .features b { display: block; }
+  .features span { color: var(--muted); font-size: 15px; }
+  .features .pro { display: inline-block; font-size: 11px; font-weight: 700; letter-spacing: .06em; vertical-align: 2px;
+    margin-left: 6px; padding: 2px 6px; border-radius: 6px; background: var(--accent); color: #fff; }
+  .get[aria-disabled="true"] { background: var(--raised); color: var(--muted); pointer-events: none; }
+  .fine { color: var(--faint); font-size: 13px; text-align: center; margin: 12px 0 0; }
   [hidden] { display: none !important; }
 </style>
 </head>
@@ -72,13 +88,31 @@
       <ul id="ingredients"></ul>
     </div>
 
-    <a class="open" id="open" href="#">Add to Macrowave</a>
-    <p class="note">Macrowave is in beta on iPhone. Ask whoever sent this for an invite.</p>
+    <p class="note">Already have Macrowave? <a id="open" href="#">Add this recipe</a></p>
   </section>
 
   <section id="broken" hidden>
     <h1>This recipe link is incomplete</h1>
     <p class="makes">Part of it may have been cut off. Ask for it to be sent again.</p>
+  </section>
+
+  <section class="ad" id="ad">
+    <div class="mark">mw</div>
+    <h2>Count it in Macrowave</h2>
+    <p class="pitch">Calories, macros, lifts and water in one app for iPhone and Apple Watch. No account, no ads, no tracking.</p>
+
+    <img class="shot" src="/img/today-cropped.webp" width="600" height="939"
+      alt="Macrowave's Today screen: 662 calories left, protein, carbs and fat bars, water and weight">
+
+    <ul class="features">
+      <li><b>Recipes, shared with a link</b><span>Get a recipe like this one into your log with one tap, by serving or by weight.</span></li>
+      <li><b>Food logging in seconds</b><span>Scan a barcode, search brand names, or pick from a big built-in list.</span></li>
+      <li><b>Snap a meal, get the macros <span class="pro">PRO</span></b><span>Describe or photograph a meal, or screenshot a recipe, and get calories and macros in seconds.</span></li>
+      <li><b>Lifting, done right</b><span>Templates that remember last time, a rest timer and an Apple Watch app.</span></li>
+    </ul>
+
+    <a class="open get" data-app-store href="#">Get Macrowave</a>
+    <p class="fine" data-app-store-note="Coming soon to iPhone. Get one email when it's out.">Free on iPhone. Pro has a 7-day free trial.</p>
   </section>
 </main>
 
@@ -156,5 +190,6 @@
     .then(recipe => show(recipe, fragment))
     .catch(() => { document.getElementById("broken").hidden = false; });
 </script>
+<script src="/app-store.js"></script>
 </body>
 </html>
