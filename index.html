@@ -196,14 +196,11 @@
   .teaser .timer-back { fill: #02ccc4; }
   .teaser .timer-digits { fill: #1c0b2d; font-size: 49px; font-family: ui-monospace, "SFMono-Regular", Consolas, monospace; font-weight: 900; letter-spacing: -3px; }
   .teaser.suspended .oven-light, .teaser.suspended .steam { animation-play-state: paused; }
-  .teaser .controls { display: flex; justify-content: center; flex-wrap: wrap; gap: 12px; margin: 12px auto 0; }
   .teaser .btn { border: 3px solid var(--t-ink); border-radius: 14px; padding: 12px 18px; background: var(--t-yellow); box-shadow: 3px 4px 0 var(--t-ink);
     font: 900 13px system-ui, -apple-system, sans-serif; letter-spacing: .04em; color: var(--t-ink); cursor: pointer; touch-action: manipulation; }
-  .teaser .btn.secondary { background: #fff; }
   .teaser .btn:active { transform: translate(2px, 3px); box-shadow: 1px 1px 0 var(--t-ink); }
   .teaser .tagline { margin: 4px auto 0; font-size: clamp(14px, 2.4vw, 20px); font-weight: 800; }
-  .teaser .status { min-height: 1.5em; margin: 16px 0 0; font-size: 13px; font-weight: 700; color: #7b6e83; }
-  .teaser .label { margin-top: 10px; font-size: 11px; letter-spacing: .14em; color: #776a79; font-weight: 800; }
+  .teaser .label { margin-top: 20px; font-size: 11px; letter-spacing: .14em; color: #776a79; font-weight: 800; }
   @keyframes oven-light { 0%, 100% { opacity: .22; } 50% { opacity: .88; } }
   @keyframes steam-rise {
     0% { opacity: 0; transform: translate(0, 18px); }
@@ -326,11 +323,6 @@
         <input type="hidden" name="source" value="home">
         <p class="note"><span class="msg" role="status">One email at launch, nothing else.</span> <a href="/privacy/#waitlist">Privacy</a></p>
       </form>
-      <div class="controls">
-        <button id="teaser-reheat" class="btn" type="button">↻ REHEAT</button>
-        <button id="teaser-pause" class="btn secondary" type="button">Ⅱ PAUSE ANIMATION</button>
-      </div>
-      <div id="teaser-status" class="status" aria-live="polite">Warming up…</div>
       <div class="label">MACROWAVE · COMING SOON</div>
     </section>
 
@@ -515,13 +507,10 @@
   const displayRange = 100 * 60;
   const page = document.getElementById('teaser');
   const timer = document.getElementById('teaser-timer');
-  const status = document.getElementById('teaser-status');
-  const pause = document.getElementById('teaser-pause');
 
   let frame = 0;
   let elapsed = 0;
   let startedAt = null;
-  let paused = false;
 
   function render(time) {
     // Only the display rolls over. The steam and light keep their own phase.
@@ -537,8 +526,9 @@
     frame = requestAnimationFrame(tick);
   }
 
+  // Stops while the tab is hidden, picking the count back up where it left off.
   function syncPlayback() {
-    const suspended = paused || document.hidden;
+    const suspended = document.hidden;
     page.classList.toggle('suspended', suspended);
 
     if (suspended && startedAt !== null) {
@@ -550,25 +540,8 @@
       startedAt = performance.now();
       frame = requestAnimationFrame(tick);
     }
-
-    const label = paused ? '▶ RESUME ANIMATION' : 'Ⅱ PAUSE ANIMATION';
-    const message = paused ? 'Paused' : 'Warming up…';
-    if (pause.textContent !== label) pause.textContent = label;
-    if (status.textContent !== message) status.textContent = message;
   }
 
-  document.getElementById('teaser-reheat').addEventListener('click', () => {
-    cancelAnimationFrame(frame);
-    elapsed = 0;
-    startedAt = null;
-    paused = false;
-    render(0);
-    syncPlayback();
-  });
-  pause.addEventListener('click', () => {
-    paused = !paused;
-    syncPlayback();
-  });
   document.addEventListener('visibilitychange', syncPlayback);
   page.classList.add('cooking');
   syncPlayback();
