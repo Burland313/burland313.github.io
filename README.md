@@ -20,9 +20,9 @@ repo root with:
 - `fonts/` and `img/` are built from the app's fonts and the App Store screenshots by
   `python3 Design/Site/make.py` (needs fonttools, brotli and Pillow). Fonts are served from here,
   not Google, so a visit doesn't touch anyone else's servers.
-- `r/index.html` shows a shared recipe. The recipe is in the link's fragment (compressed,
-  URL-safe base64 JSON), so the server never receives it. Below the recipe is an ad for the app:
-  anyone who lands here doesn't have Macrowave, since the app opens these links itself.
-- `.well-known/apple-app-site-association` makes `/r/*` links open Macrowave when it's
+- `r/index.html` shows a shared recipe and `w/index.html` a shared workout template. What was
+  shared is in the link's fragment (compressed, URL-safe base64 JSON), so the server never
+  receives it. Below the recipe is an ad for the app: anyone who lands here doesn't have Macrowave, since the app opens these links itself.
+- `.well-known/apple-app-site-association` makes `/r/*` and `/w/*` links open Macrowave when it's
   installed. Apple's CDN caches it, so a change can take a day to reach phones.
 - `.nojekyll` stops GitHub Pages from hiding `.well-known`.

@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>A workout from Macrowave</title>
+<meta property="og:title" content="A workout from Macrowave">
+<meta property="og:description" content="Exercises, sets and reps, from Macrowave: food, lifting and water tracking for iPhone.">
+<link rel="icon" href="/favicon.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<style>
+  @font-face { font-family: Damion; src: url(/fonts/damion.woff2) format("woff2"); font-display: swap; }
+  :root {
+    --bg: #FBF8F3; --surface: #FFFFFF; --raised: #F1ECF4;
+    --text: #1A1027; --muted: #5F5272; --faint: #716585;
+    --accent: #D6197A;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #140B24; --surface: #1E1233; --raised: #2A1A45;
+      --text: #F7F2FB; --muted: #B9A6D9; --faint: #9A88BD;
+      --accent: #FF4FA3;
+    }
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--text);
+    font: 17px/1.45 -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+  main { max-width: 520px; margin: 0 auto; padding: 24px 16px 48px; }
+  .mark { font-family: Damion, cursive; font-size: 36px; color: var(--accent); line-height: 1; text-decoration: none; }
+  h1 { font-size: 30px; line-height: 1.15; margin: 20px 0 4px; overflow-wrap: anywhere; }
+  .summary { color: var(--muted); margin: 0; }
+  .card { background: var(--surface); border-radius: 16px; padding: 16px; margin-top: 16px; }
+  .label { font-size: 13px; font-weight: 600; letter-spacing: .04em; text-transform: uppercase; color: var(--faint); margin: 0 0 12px; }
+  ul { list-style: none; margin: 0; padding: 0; }
+  li { display: flex; gap: 12px; justify-content: space-between; padding: 10px 0; border-top: 1px solid var(--raised); }
+  li:first-child { border-top: 0; padding-top: 0; }
+  li .name { overflow-wrap: anywhere; }
+  li .reps { display: block; font-size: 15px; color: var(--muted); }
+  li .sets { color: var(--muted); font-variant-numeric: tabular-nums; white-space: nowrap; }
+  .open { display: block; margin-top: 24px; padding: 16px; border-radius: 14px; text-align: center;
+    background: var(--accent); color: #fff; font-weight: 600; text-decoration: none; }
+  .note { color: var(--muted); font-size: 15px; text-align: center; margin: 12px 0 0; }
+  .note a { color: var(--accent); font-weight: 600; text-decoration: none; }
+
+  /* The ad: anyone who sees this page doesn't have Macrowave, since the app opens these links itself. */
+  .ad { margin-top: 40px; padding-top: 32px; border-top: 1px solid var(--raised); }
+  .ad .mark { font-size: 44px; }
+  .ad h2 { font-size: 26px; line-height: 1.2; margin: 8px 0 8px; }
+  .ad .pitch { color: var(--muted); margin: 0; }
+  .shot { display: block; width: 100%; max-width: 300px; height: auto; margin: 24px auto 0; border-radius: 28px;
+    border: 3px solid var(--text); box-shadow: 6px 6px 0 var(--text); }
+  .features { margin-top: 24px; }
+  .features li { display: block; padding: 12px 0; }
+  .features b { display: block; }
+  .features span { color: var(--muted); font-size: 15px; }
+  .features .pro { display: inline-block; font-size: 11px; font-weight: 700; letter-spacing: .06em; vertical-align: 2px;
+    margin-left: 6px; padding: 2px 6px; border-radius: 6px; background: var(--accent); color: #fff; }
+  .get[aria-disabled="true"] { background: var(--raised); color: var(--muted); pointer-events: none; }
+  .fine { color: var(--faint); font-size: 13px; text-align: center; margin: 12px 0 0; }
+  [hidden] { display: none !important; }
+</style>
+</head>
+<body>
+<main>
+  <a class="mark" href="/">mw</a>
+
+  <section id="workout" hidden>
+    <h1 id="name"></h1>
+    <p class="summary" id="summary"></p>
+
+    <div class="card">
+      <p class="label">Exercises</p>
+      <ul id="exercises"></ul>
+    </div>
+
+    <p class="note">Already have Macrowave? <a id="open" href="#">Add this workout</a></p>
+  </section>
+
+  <section id="broken" hidden>
+    <h1>This workout link is incomplete</h1>
+    <p class="summary">Part of it may have been cut off. Ask for it to be sent again.</p>
+  </section>
+
+  <section class="ad" id="ad">
+    <div class="mark">mw</div>
+    <h2>Lift it in Macrowave</h2>
+    <p class="pitch">Lifts, calories, macros and water in one app for iPhone and Apple Watch. No account, no ads, no tracking.</p>
+
+    <img class="shot" src="/img/workout.webp" width="560" height="1218"
+      alt="A Push workout in progress: bench press sets checked off at 145 pounds, with a rest timer at 0:59">
+
+    <ul class="features">
+      <li><b>Workouts, shared with a link</b><span>Get a workout like this one into your templates with one tap.</span></li>
+      <li><b>Templates that remember last time</b><span>Any set you leave blank fills in from what you lifted last time.</span></li>
+      <li><b>Rest timer and Apple Watch</b><span>Log sets and rest from your wrist, with the timer on your Lock Screen.</span></li>
+      <li><b>Food logging in seconds</b><span>Scan a barcode, search brand names, or pick from a big built-in list.</span></li>
+    </ul>
+
+    <a class="open get" data-app-store href="#">Get Macrowave</a>
+    <p class="fine" data-app-store-note="Coming soon to iPhone. Get one email when it's out.">Free on iPhone. Pro has a 7-day free trial.</p>
+  </section>
+</main>
+
+<script>
+  // The workout is in the fragment: raw DEFLATE of the JSON, in URL-safe base64. Browsers
+  // never send the fragment to the server, so the workout stays between the two phones.
+  async function readWorkout(fragment) {
+    const base64 = fragment.replace(/-/g, "+").replace(/_/g, "/") + "=".repeat((4 - fragment.length % 4) % 4);
+    const bytes = Uint8Array.from(atob(base64), c => c.charCodeAt(0));
+    const stream = new Blob([bytes]).stream().pipeThrough(new DecompressionStream("deflate-raw"));
+    const workout = JSON.parse(await new Response(stream).text());
+    if (typeof workout.name !== "string" || !Array.isArray(workout.exercises)) throw new Error("not a workout");
+    return workout;
+  }
+
+  const plural = (count, word) => `${count} ${word}${count === 1 ? "" : "s"}`;
+
+  // Matches SharedWorkout.Item.repsLabel in the app: "12 reps", "12, 12, 10, 10 reps", "12, –, – reps".
+  function repsLabel(reps) {
+    const planned = reps.filter(r => typeof r === "number");
+    if (!planned.length) return "Reps from last time";
+    if (planned.length === reps.length && planned.every(r => r === planned[0])) return `${planned[0]} reps`;
+    return `${reps.map(r => typeof r === "number" ? r : "–").join(", ")} reps`;
+  }
+
+  function show(workout, fragment) {
+    document.title = `${workout.name} · Macrowave`;
+    document.getElementById("name").textContent = workout.name;
+    const sets = workout.exercises.reduce((sum, item) => sum + (Array.isArray(item.reps) ? item.reps.length : 0), 0);
+    document.getElementById("summary").textContent = `${plural(workout.exercises.length, "exercise")} · ${plural(sets, "set")}`;
+
+    const list = document.getElementById("exercises");
+    for (const item of workout.exercises) {
+      const reps = Array.isArray(item.reps) ? item.reps : [];
+      const row = document.createElement("li");
+      const left = document.createElement("div");
+      const name = document.createElement("span");
+      name.className = "name";
+      name.textContent = String(item.name);
+      const detail = document.createElement("span");
+      detail.className = "reps";
+      detail.textContent = repsLabel(reps);
+      left.append(name, detail);
+      const count = document.createElement("span");
+      count.className = "sets";
+      count.textContent = plural(reps.length, "set");
+      row.append(left, count);
+      list.append(row);
+    }
+
+    // For when the link opened here instead of the app: Macrowave's own scheme opens it there.
+    document.getElementById("open").href = `macrowave://workout#${fragment}`;
+    document.getElementById("workout").hidden = false;
+  }
+
+  // A different link pasted into the same tab only changes the fragment, which doesn't reload.
+  addEventListener("hashchange", () => location.reload());
+
+  const fragment = location.hash.slice(1);
+  readWorkout(fragment)
+    .then(workout => show(workout, fragment))
+    .catch(() => { document.getElementById("broken").hidden = false; });
+</script>
+<script src="/app-store.js"></script>
+</body>
+</html>
