@@ -1,32 +1,132 @@
-<!doctype html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Macrowave</title>
-<meta property="og:title" content="Macrowave">
-<link rel="icon" href="/favicon.png">
-<link rel="apple-touch-icon" href="/apple-touch-icon.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Damion&display=swap" rel="stylesheet">
-<style>
-  :root { --bg: #FBF8F3; --text: #1A1027; --muted: #5F5272; --accent: #D6197A; }
-  @media (prefers-color-scheme: dark) { :root { --bg: #140B24; --text: #F7F2FB; --muted: #B9A6D9; --accent: #FF4FA3; } }
-  body { margin: 0; min-height: 100vh; display: grid; place-items: center; background: var(--bg); color: var(--text);
-    font: 17px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; text-align: center; padding: 0 16px; }
-  .mark { font-family: Damion, cursive; font-size: 72px; color: var(--accent); line-height: 1; }
-  p { color: var(--muted); margin: 8px 0 0; }
-  a { color: var(--accent); }
-</style>
-</head>
-<body>
-  <main>
-    <div class="mark">mw</div>
-    <h1>Macrowave</h1>
-    <p>Food, lifting and water tracking for iPhone and Apple Watch. In beta.</p>
-    <p>Questions or problems? Email <a href="mailto:burland313@gmail.com">burland313@gmail.com</a>.</p>
-    <p><a href="/privacy/">Privacy Policy</a></p>
-    <p>Made by Midnight Signal LLC.</p>
-  </main>
-</body>
-</html>
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#fdf8ee"><title>Macrowave · Something's cooking</title><meta name="description" content="Macrowave tracks what you eat, what you lift and how much water you drink, on iPhone and Apple Watch. Coming soon."><meta property="og:title" content="Macrowave: something's cooking"><meta property="og:description" content="Food, lifting and water tracking for iPhone and Apple Watch. Coming soon."><link rel="icon" href="/favicon.png"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><style>
+:root{--ink:#211032;--pink:#fa3b94;--cream:#fdf8ee;--yellow:#ffdb45}*{box-sizing:border-box}html,body{margin:0;min-height:100%;width:100%}body{background:var(--cream);font-family:system-ui,-apple-system,"Arial Rounded MT Bold",sans-serif;color:var(--ink);overflow-x:hidden}.page{min-height:100svh;width:100%;max-width:1100px;margin:auto;padding:clamp(28px,5vh,58px) 12px 32px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center}.eyebrow{font-size:clamp(10px,1.9vw,14px);font-weight:900;letter-spacing:.20em;text-transform:uppercase;color:#695676;margin:0 0 12px}.heading{margin:0 0 4px;text-transform:uppercase;font-size:clamp(32px,6.4vw,74px);font-weight:1000;letter-spacing:-.065em;line-height:1.03}.heading span{display:block;color:var(--pink);letter-spacing:-.018em;-webkit-text-stroke:1.5px var(--ink);paint-order:stroke fill;filter:drop-shadow(3px 4px 0 var(--ink))}.stage{width:100%;max-width:1030px;position:relative;flex-shrink:0;margin:16px auto 0}.art{display:block;width:100%;height:auto;aspect-ratio:1672/941;object-fit:contain;user-select:none;-webkit-user-drag:none}.fx{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;overflow:visible}
+/* Effects share the illustration's coordinate system. */
+.oven-light,.steam{opacity:0}
+.cooking .oven-light{animation:oven-light 2.8s ease-in-out infinite}
+.cooking .steam{animation:steam-rise 2.8s linear infinite}
+.cooking .steam-middle{animation-duration:3.2s;animation-delay:-1.1s}
+.cooking .steam-right{animation-duration:2.6s;animation-delay:-1.9s}
+
+.timer-back{fill:#02ccc4}
+.timer-digits{fill:#1c0b2d;font-size:49px;font-family:ui-monospace,"SFMono-Regular",Consolas,monospace;font-weight:900;letter-spacing:-3px}
+.suspended .oven-light,.suspended .steam{animation-play-state:paused}
+
+.controls{display:flex;justify-content:center;flex-wrap:wrap;gap:12px;margin:12px auto 0}.btn{border:3px solid var(--ink);border-radius:14px;padding:12px 18px;background:var(--yellow);box-shadow:3px 4px 0 var(--ink);font:900 13px system-ui,-apple-system,sans-serif;letter-spacing:.04em;color:var(--ink);cursor:pointer;touch-action:manipulation}.btn.secondary{background:#fff}.btn:active{transform:translate(2px,3px);box-shadow:1px 1px 0 var(--ink)}.tagline{margin:4px auto 0;font-size:clamp(14px,2.4vw,20px);font-weight:800}.status{min-height:1.5em;margin:16px 0 0;font-size:13px;font-weight:700;color:#7b6e83}.footer{margin-top:10px;font-size:11px;letter-spacing:.14em;color:#776a79;font-weight:800}.contact{margin:8px 0 0;font-size:12px;font-weight:700;color:#776a79}.contact a{color:inherit}
+
+@keyframes oven-light{
+  0%,100%{opacity:.22}
+  50%{opacity:.88}
+}
+@keyframes steam-rise{
+  0%{opacity:0;transform:translate(0,18px)}
+  22%{opacity:.73}
+  58%{opacity:.53;transform:translate(7px,-39px)}
+  100%{opacity:0;transform:translate(-5px,-102px)}
+}
+@media(prefers-reduced-motion:reduce){
+  .cooking .oven-light{animation:none;opacity:.44}
+  .cooking .steam{animation:none}
+}
+</style></head><body><main class="page" id="page"><p class="eyebrow">The next big thing is heating up</p><h1 class="heading">Something's <span>Cooking!</span></h1><div class="stage" role="img" aria-label="The original approved Macrowave illustration featuring the mw logo on a bowl in a teal and cream cartoon microwave"><img class="art" alt="" draggable="false" src="/img/coming-soon.webp" width="1672" height="941"><svg class="fx" viewBox="0 0 1672 941" preserveAspectRatio="xMidYMid meet" aria-hidden="true"><defs>
+
+<clipPath id="oven-window" clipPathUnits="userSpaceOnUse">
+  <path d="M494 380H941Q978 380 978 416V643Q978 679 941 679H494Q457 679 457 643V416Q457 380 494 380Z"/>
+</clipPath>
+<clipPath id="above-bowl" clipPathUnits="userSpaceOnUse">
+  <path d="M627 380H855V493L827 499Q818 486 801 488Q781 480 758 490Q726 470 691 497Q663 474 634 501H627Z"/>
+</clipPath>
+<linearGradient id="steam-fade" x2="0" y2="1">
+  <stop offset="0" stop-color="#fff" stop-opacity="0"/>
+  <stop offset=".3" stop-color="#fff"/>
+</linearGradient>
+<mask id="steam-depth" maskUnits="userSpaceOnUse" x="627" y="380" width="228" height="133">
+  <rect x="627" y="380" width="228" height="133" fill="url(#steam-fade)"/>
+</mask>
+<radialGradient id="oven-ambient" cx="69%" cy="18%" r="76%">
+  <stop offset="0" stop-color="#fff2b1" stop-opacity=".68"/>
+  <stop offset=".43" stop-color="#ffd36c" stop-opacity=".40"/>
+  <stop offset="1" stop-color="#ffc054" stop-opacity="0"/>
+</radialGradient>
+<radialGradient id="lamp-halo">
+  <stop offset="0" stop-color="#fffbe2" stop-opacity=".64"/>
+  <stop offset=".36" stop-color="#fff2af" stop-opacity=".40"/>
+  <stop offset="1" stop-color="#ffe18c" stop-opacity="0"/>
+</radialGradient>
+</defs>
+<g clip-path="url(#oven-window)">
+  <g class="oven-light">
+    <rect x="457" y="380" width="521" height="299" fill="url(#oven-ambient)"/>
+    <ellipse cx="867" cy="410" rx="111" ry="67" fill="url(#lamp-halo)"/>
+  </g>
+  <g clip-path="url(#above-bowl)" mask="url(#steam-depth)" fill="none" stroke="#fff6d8" stroke-linecap="round">
+    <path class="steam" stroke-width="11" d="M673 511C699 490 693 474 679 462C664 449 666 435 676 425"/>
+    <path class="steam steam-middle" stroke-width="13" d="M729 513C753 490 753 472 734 458C716 444 719 429 731 415"/>
+    <path class="steam steam-right" stroke-width="10" d="M783 513C809 495 808 480 792 467C777 454 778 441 788 431"/>
+  </g>
+</g>
+<rect class="timer-back" x="1021" y="382" width="146" height="69" rx="12"/><text id="timer" class="timer-digits" x="1094" y="434" text-anchor="middle">99:59</text></svg></div><p class="tagline">Your macros. Your meals. A whole lot of mwagic.</p><div class="controls"><button id="reheat" class="btn" type="button">↻ REHEAT</button><button id="pause" class="btn secondary" type="button">Ⅱ PAUSE ANIMATION</button></div><div id="status" class="status" aria-live="polite">Warming up…</div><div class="footer">MACROWAVE · COMING SOON</div><p class="contact">Questions? <a href="mailto:burland313@gmail.com">burland313@gmail.com</a> · <a href="/privacy/">Privacy Policy</a></p></main><script>
+(() => {
+  'use strict';
+
+  const displayRange = 100 * 60;
+  const page = document.getElementById('page');
+  const timer = document.getElementById('timer');
+  const status = document.getElementById('status');
+  const pause = document.getElementById('pause');
+
+  let frame = 0;
+  let elapsed = 0;
+  let startedAt = null;
+  let paused = false;
+
+  function render(time) {
+    // Only the display rolls over. The steam and light keep their own phase.
+    const remaining = displayRange - 1 - (Math.floor(time / 1000) % displayRange);
+    const minutes = String(Math.floor(remaining / 60)).padStart(2, '0');
+    const seconds = String(remaining % 60).padStart(2, '0');
+    const digits = minutes + ':' + seconds;
+    if (timer.textContent !== digits) timer.textContent = digits;
+  }
+
+  function tick(now) {
+    render(elapsed + Math.max(0, now - startedAt));
+    frame = requestAnimationFrame(tick);
+  }
+
+  function syncPlayback() {
+    const suspended = paused || document.hidden;
+    page.classList.toggle('suspended', suspended);
+
+    if (suspended && startedAt !== null) {
+      cancelAnimationFrame(frame);
+      elapsed += performance.now() - startedAt;
+      startedAt = null;
+      render(elapsed);
+    } else if (!suspended && startedAt === null) {
+      startedAt = performance.now();
+      frame = requestAnimationFrame(tick);
+    }
+
+    const label = paused ? '▶ RESUME ANIMATION' : 'Ⅱ PAUSE ANIMATION';
+    const message = paused ? 'Paused' : 'Warming up…';
+    if (pause.textContent !== label) pause.textContent = label;
+    if (status.textContent !== message) status.textContent = message;
+  }
+
+  document.getElementById('reheat').addEventListener('click', () => {
+    cancelAnimationFrame(frame);
+    elapsed = 0;
+    startedAt = null;
+    paused = false;
+    render(0);
+    syncPlayback();
+  });
+  pause.addEventListener('click', () => {
+    paused = !paused;
+    syncPlayback();
+  });
+  document.addEventListener('visibilitychange', syncPlayback);
+  page.classList.add('cooking');
+  syncPlayback();
+})();
+</script></body></html>
